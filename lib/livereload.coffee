@@ -1,3 +1,5 @@
+path = require 'path'
+
 module.exports =
   initialize: (grunt, config, userConfig) ->
     grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-connect'
