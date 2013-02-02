@@ -1,7 +1,7 @@
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-contrib-connect'
-    grunt.loadNpmTasks 'grunt-contrib-livereload'
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-connect'
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-livereload'
 
     config.regarde.public =
       files: 'public/**/*'

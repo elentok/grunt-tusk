@@ -2,7 +2,7 @@ fs = require 'fs'
 
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-contrib-jade'
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-jade'
     grunt.renameTask('jade', 'jade2html')
 
     config.regarde.jade2html =
@@ -13,11 +13,13 @@ module.exports =
       'public/test.html': 'test/test.jade'
     production_files = {}
 
-    for filename in fs.readdirSync('app/pages')
-      continue if /.jade$/.test(filename)
-      html_filename = file.replace('.jade', '.html')
-      dev_files["public/#{html_filename}"] = "app/pages/#{html_filename}"
-      production_files["build/#{html_filename}"] = "app/pages/#{html_filename}"
+    if grunt.file.isDir('app/pages')
+      for filename in fs.readdirSync('app/pages')
+        continue unless /.jade$/.test(filename)
+        continue if /^_/.test(filename)
+        html_filename = filename.replace('.jade', '.html')
+        dev_files["public/#{html_filename}"] = "app/pages/#{filename}"
+        production_files["build/#{html_filename}"] = "app/pages/#{filename}"
 
     config.jade2html =
       dev:

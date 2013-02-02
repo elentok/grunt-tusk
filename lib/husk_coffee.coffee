@@ -4,7 +4,8 @@ module.exports =
     scripts.vendor or= []
     scripts.test_vendor or= []
 
-    grunt.loadNpmTasks 'grunt-husk-coffee'
+
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-husk-coffee'
 
     config.regarde.app_coffee =
       files: 'app/coffee/**/*.coffee'

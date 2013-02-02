@@ -2,7 +2,7 @@ fs = require 'fs'
 
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-contrib-uglify'
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-uglify'
 
     files =
       'build/app.js': [
@@ -11,8 +11,10 @@ module.exports =
         'public/i18n/en.js',
         'public/app.js']
 
-    for filename in fs.readdirSync('public/i18n')
-      files["build/i18n/#{filename}"] = "public/i18n/#{filename}"
+    if grunt.file.isDir('app/i18n')
+      for filename in fs.readdirSync('app/i18n')
+        js_filename = filename.replace('.coffee', '.js')
+        files["build/i18n/#{js_filename}"] = "public/i18n/#{js_filename}"
 
     config.uglify =
       production:

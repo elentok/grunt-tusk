@@ -21,7 +21,7 @@ module.exports =
       copy: true
       uglify: true
 
-    grunt.loadNpmTasks 'grunt-regarde'
+    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-regarde'
 
     config =
       regarde: {}
