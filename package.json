@@ -1,0 +1,55 @@
+{
+  "name": "grunt-husk",
+  "description": "Grunt based build system",
+  "version": "0.0.1",
+  "homepage": "https://github.com/elentok/grunt-husk",
+  "author": {
+    "name": "David Elentok",
+    "email": "3david@gmail.com",
+    "url": "http://www.elentok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/elentok/grunt-husk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elentok/grunt-husk/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/elentok/grunt-husk/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.coffee",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": ">=0.4",
+    "grunt-husk-coffee": "https://github.com/elentok/grunt-husk-coffee/tarball/master",
+    "grunt-compass": "*",
+    "grunt-contrib-copy": "0.4.0rc7",
+    "grunt-contrib-uglify": "0.1.1rc6",
+
+    "grunt-jade-plugin": "0.2.1",
+    "grunt-contrib-jade": ">=0.4.0rc7",
+
+    "grunt-regarde": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-livereload": "https://github.com/gruntjs/grunt-contrib-livereload/tarball/master",
+
+
+    "bower": "0.7.0",
+
+    "supervisor": "0.5.0"
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

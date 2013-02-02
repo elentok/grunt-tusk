@@ -1,0 +1,16 @@
+module.exports =
+  initialize: (grunt, config, userConfig) ->
+    grunt.loadNpmTasks 'grunt-jade-plugin'
+    grunt.renameTask('jade', 'jade2js')
+
+    config.regarde.jade2js =
+      files: ['app/templates/**/*.jade']
+      tasks: ['jade2js']
+
+    config.jade2js =
+      app:
+        options:
+          namespace: 'JST'
+        files:
+          'public/templates.js': 'app/templates/**/*.jade'
+
