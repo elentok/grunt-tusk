@@ -50,6 +50,7 @@
   "devDependencies": {
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "gruntcollection"
   ]
 }
