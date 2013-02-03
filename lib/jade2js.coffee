@@ -1,6 +1,6 @@
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-jade-plugin'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-jade-plugin'
     grunt.renameTask('jade', 'jade2js')
 
     config.regarde.jade2js =

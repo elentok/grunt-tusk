@@ -2,7 +2,7 @@ path = require 'path'
 
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-copy'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-contrib-copy'
     config.regarde.images =
       files: 'app/images/**/*'
       tasks: ["copy"]

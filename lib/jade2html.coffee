@@ -2,7 +2,7 @@ fs = require 'fs'
 
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-jade'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-contrib-jade'
     grunt.renameTask('jade', 'jade2html')
 
     config.regarde.jade2html =

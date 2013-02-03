@@ -1,6 +1,6 @@
 #
-# grunt-husk
-# https:#github.com/elentok/grunt-husk
+# grunt-tusk
+# https:#github.com/elentok/grunt-tusk
 #
 # Copyright (c) 2013 David Elentok
 # Licensed under the MIT license.

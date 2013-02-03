@@ -1,8 +1,8 @@
 {
-  "name": "grunt-husk",
+  "name": "grunt-tusk",
   "description": "Grunt based build system",
   "version": "0.0.1",
-  "homepage": "https://github.com/elentok/grunt-husk",
+  "homepage": "https://github.com/elentok/grunt-tusk",
   "author": {
     "name": "David Elentok",
     "email": "3david@gmail.com",
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/elentok/grunt-husk.git"
+    "url": "git://github.com/elentok/grunt-tusk.git"
   },
   "bugs": {
-    "url": "https://github.com/elentok/grunt-husk/issues"
+    "url": "https://github.com/elentok/grunt-tusk/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/elentok/grunt-husk/blob/master/LICENSE-MIT"
+      "url": "https://github.com/elentok/grunt-tusk/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/husk.coffee",
+  "main": "lib/tusk.coffee",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "grunt": ">=0.4",
-    "grunt-husk-coffee": "https://github.com/elentok/grunt-husk-coffee/tarball/master",
+    "grunt-tusk-coffee": "https://github.com/elentok/grunt-tusk-coffee/tarball/master",
     "grunt-compass": "*",
     "grunt-contrib-copy": "0.4.0rc7",
     "grunt-contrib-uglify": "0.1.1rc6",

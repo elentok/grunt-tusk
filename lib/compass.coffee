@@ -1,6 +1,6 @@
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-compass'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-compass'
     config.regarde.app_compass =
       files: 'app/stylesheets/**/*.scss'
       tasks: ['compass:dev']

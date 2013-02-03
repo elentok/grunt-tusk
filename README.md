@@ -1,5 +1,5 @@
-Husk
-=====
+Grunt-Tusk
+==========
 
 [GruntJS](http://gruntjs.org) based build system for frontend web projects.
 
@@ -87,12 +87,12 @@ build/
 Configuration
 ------------
 
-* Add grunt-husk to your package.json:
+* Add tusk to your package.json:
 
 ```javascript
   "dependencies": {
     "grunt": "~0.4.0",
-    "grunt-husk": "https://github.com/elentok/grunt-husk/tarball/master"
+    "grunt-tusk": "~0.0.1"
   },
 ```
 
@@ -101,8 +101,8 @@ Configuration
 ```coffee
 module.exports = (grunt) ->
 
-  husk = require 'grunt-husk'
-  husk.initialize grunt,
+  tusk = require 'grunt-tusk'
+  tusk.initialize grunt,
     scripts:
       vendor: [
         'components/jquery/jquery.js'
@@ -160,7 +160,7 @@ module.exports = (grunt) ->
   
 Template
 --------
-See [grunt-husk-template](https://github.com/elentok/grunt-husk-template) for a basic template to get start faster.
+See [grunt-tusk-template](https://github.com/elentok/grunt-tusk-template) for a basic template to get start faster.
   
   
 

@@ -5,17 +5,17 @@ module.exports =
     scripts.test_vendor or= []
 
 
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-husk-coffee'
+    grunt.loadNpmTasks 'tusk/node_modules/tusk-coffee'
 
     config.regarde.app_coffee =
       files: 'app/coffee/**/*.coffee'
-      tasks: ['husk_coffee:app']
+      tasks: ['tusk_coffee:app']
 
     config.regarde.test_coffee =
       files: 'test/**/*.coffee'
-      tasks: ['husk_coffee:test']
+      tasks: ['tusk_coffee:test']
 
-    config.husk_coffee =
+    config.tusk_coffee =
       app:
         options:
           root: 'app/coffee'

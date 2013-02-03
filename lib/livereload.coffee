@@ -2,8 +2,8 @@ path = require 'path'
 
 module.exports =
   initialize: (grunt, config, userConfig) ->
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-connect'
-    grunt.loadNpmTasks 'grunt-husk/node_modules/grunt-contrib-livereload'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-contrib-connect'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-contrib-livereload'
 
     config.regarde.public =
       files: 'public/**/*'
