@@ -1,7 +1,7 @@
 Grunt-Tusk
 ==========
 
-[GruntJS](http://gruntjs.org) based build system for frontend web projects.
+[GruntJS](http://gruntjs.com) based build system for frontend web projects.
 
 Features
 --------
