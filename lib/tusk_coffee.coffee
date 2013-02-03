@@ -5,7 +5,7 @@ module.exports =
     scripts.test_vendor or= []
 
 
-    grunt.loadNpmTasks 'tusk/node_modules/tusk-coffee'
+    grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-tusk-coffee'
 
     config.regarde.app_coffee =
       files: 'app/coffee/**/*.coffee'
