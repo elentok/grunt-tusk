@@ -40,7 +40,10 @@ module.exports =
           wrap: 'Function'
           runtime: false
         files:
-          'public/test.js': ['test/**/*.coffee']
+          'public/test.js': [
+            'test/spec_helper.coffee',
+            'test/**/*.coffee'
+          ]
       test_vendor:
         options:
           wrap: false
