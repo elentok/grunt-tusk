@@ -29,18 +29,18 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "grunt": ">=0.4",
+    "grunt": "0.4.1",
     "grunt-tusk-coffee": "0.0.x",
     "grunt-compass": "*",
-    "grunt-contrib-copy": "0.4.0rc7",
-    "grunt-contrib-uglify": "0.1.1rc6",
+    "grunt-contrib-copy": "0.4.1",
+    "grunt-contrib-uglify": "0.2.0",
 
     "grunt-jade-plugin": "0.2.1",
-    "grunt-contrib-jade": ">=0.4.0rc7",
+    "grunt-contrib-jade": "0.5.0",
 
-    "grunt-regarde": "*",
-    "grunt-contrib-connect": "*",
-    "grunt-contrib-livereload": "https://github.com/gruntjs/grunt-contrib-livereload/tarball/master",
+    "grunt-regarde": "0.1.1",
+    "grunt-contrib-connect": "0.2.0",
+    "grunt-contrib-livereload": "0.1.2",
 
 
     "bower": "0.7.0",
