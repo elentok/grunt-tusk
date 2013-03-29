@@ -37,7 +37,7 @@ module.exports =
           'public/vendor.js': scripts.vendor
       test:
         options:
-          wrap: false
+          wrap: 'Function'
           runtime: false
         files:
           'public/test.js': ['test/**/*.coffee']
