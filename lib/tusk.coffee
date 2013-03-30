@@ -25,7 +25,7 @@ module.exports =
     grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-regarde'
 
     config =
-      regarde: {}
+      regarde: userConfig.regarde or {}
 
     for moduleName of modules
       if modules[moduleName]

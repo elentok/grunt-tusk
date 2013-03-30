@@ -3,7 +3,7 @@ module.exports =
     scripts = userConfig.scripts or {}
     scripts.vendor or= []
     scripts.test_vendor or= []
-
+    scripts.extra or= {}
 
     grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-tusk-coffee'
 
@@ -51,3 +51,10 @@ module.exports =
         files:
           'public/javascripts/test_vendor.js': scripts.test_vendor
 
+    for own pkgName, pkg of scripts.extra
+      config.tusk_coffee[pkgName] = pkg
+      i = 0
+      for own output, files of pkg.files
+        config.regarde["#{pkgName}_coffee_#{i++}"] =
+          files: files
+          tasks: ["tusk_coffee:#{pkgName}"]
