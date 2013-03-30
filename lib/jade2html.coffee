@@ -27,7 +27,7 @@ module.exports =
           pretty: true
           data:
             debug: true
-            javascripts: ['vendor.js', 'templates.js', 'i18n/en.js', 'app.js']
+            javascripts: ['javascripts/vendor.js', 'javascripts/templates.js', 'javascripts/i18n/en.js', 'javascripts/app.js']
         files: dev_files
       production:
         options:

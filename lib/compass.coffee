@@ -8,13 +8,13 @@ module.exports =
     config.compass =
       dev:
         src: 'app/stylesheets'
-        dest: 'public'
+        dest: 'public/stylesheets'
         images: '.'
         importPath: 'components'
       production:
         outputstyle: 'compressed'
         src: 'app/stylesheets'
-        dest: 'build'
+        dest: 'build/stylesheets'
         images: '.'
         importPath: 'components'
 

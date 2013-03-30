@@ -20,7 +20,7 @@ module.exports =
         options:
           root: 'app/coffee'
         files:
-          'public/app.js': ['app/coffee/**/*.coffee'],
+          'public/javascripts/app.js': ['app/coffee/**/*.coffee'],
       i18n:
         options:
           root: 'app/i18n'
@@ -28,19 +28,19 @@ module.exports =
           runtime: false
           wrap: false
         files:
-          'public/i18n/': 'app/i18n/*.coffee'
+          'public/javascripts/i18n/': 'app/i18n/*.coffee'
       vendor:
         options:
           wrap: false
           runtime: false
         files:
-          'public/vendor.js': scripts.vendor
+          'public/javascripts/vendor.js': scripts.vendor
       test:
         options:
           wrap: 'Function'
           runtime: false
         files:
-          'public/test.js': [
+          'public/javascripts/test.js': [
             'test/spec_helper.coffee',
             'test/**/*.coffee'
           ]
@@ -49,5 +49,5 @@ module.exports =
           wrap: false
           runtime: false
         files:
-          'public/test_vendor.js': scripts.test_vendor
+          'public/javascripts/test_vendor.js': scripts.test_vendor
 

@@ -12,5 +12,5 @@ module.exports =
         options:
           namespace: 'JST'
         files:
-          'public/templates.js': 'app/templates/**/*.jade'
+          'public/javascripts/templates.js': 'app/templates/**/*.jade'
 
