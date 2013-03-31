@@ -24,6 +24,7 @@ module.exports = (grunt) ->
   tusk.jade.add 'javascripts/templates.js', 'test/fixtures/templates'
 
   tusk.copy.add 'images', 'test/fixtures/images'
+  tusk.copy.add 'file1.txt', 'test/fixtures/file1.txt'
 
   tusk.uglify.add 'app.min.js', ['app.js']
 

@@ -5,6 +5,8 @@ describe "TuskCopyModule", ->
   beforeEach ->
     @grunt =
       loadNpmTasks: ->
+      file:
+        isDir: -> true
     @config = {}
     @env =
       current: 'dev'
@@ -12,33 +14,45 @@ describe "TuskCopyModule", ->
     @plugin = new TuskCopyModule(@grunt, @config, @env)
 
   describe "#add", ->
-    it "adds an item to @config.copy", ->
-      @plugin.add('images', 'app/images')
-      expect(@config.copy['app/images']).to.eql {
-        files: [{
-          expand: true
-          cwd: 'app/images'
-          dest: 'build/the-env/images'
-          src: '**/*'
-        }]
-      }
+    describe "for a single file", ->
+      it "adds an item to @config.copy", ->
+        @stub(@grunt.file, 'isDir').withArgs('app/manifest.json').returns(false)
+        @plugin.add('manifest.json', 'app/manifest.json')
+        expect(@config.copy['app/manifest.json']).to.eql {
+          files: [{
+            dest: 'build/the-env/manifest.json'
+            src: 'app/manifest.json'
+          }]
+        }
 
-    it "adds an item with a filter to @config.copy", ->
-      @plugin.add('images', 'app/images', filter: '*.png')
-      expect(@config.copy['app/images']).to.eql {
-        files: [{
-          expand: true
-          cwd: 'app/images'
-          dest: 'build/the-env/images'
-          src: '*.png'
-        }]
-      }
+    describe "for directory", ->
+      it "adds an item to @config.copy", ->
+        @plugin.add('images', 'app/images')
+        expect(@config.copy['app/images']).to.eql {
+          files: [{
+            expand: true
+            cwd: 'app/images'
+            dest: 'build/the-env/images'
+            src: '**/*'
+          }]
+        }
 
-    it "adds an item to @config.regarde", ->
-      @plugin.add('images', 'app/images')
-      expect(@config.regarde['app/images']).to.eql {
-        files: 'app/images/**/*'
-        tasks: ["copy:app/images"]
-      }
+      it "adds an item with a filter to @config.copy", ->
+        @plugin.add('images', 'app/images', filter: '*.png')
+        expect(@config.copy['app/images']).to.eql {
+          files: [{
+            expand: true
+            cwd: 'app/images'
+            dest: 'build/the-env/images'
+            src: '*.png'
+          }]
+        }
+
+      it "adds an item to @config.regarde", ->
+        @plugin.add('images', 'app/images')
+        expect(@config.regarde['app/images']).to.eql {
+          files: 'app/images/**/*'
+          tasks: ["copy:app/images"]
+        }
 
 

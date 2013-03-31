@@ -7,14 +7,21 @@ module.exports = class TuskCopyModule
 
   add: (dest, source, options = {}) ->
     filter = options.filter or '**/*'
-    @config.copy or= {}
-    @config.copy[source] = {
-      files: [{
+
+    if @grunt.file.isDir(source)
+      file =
         expand: true
         cwd: source
         dest: path.join(@env.dest, dest)
         src: filter
-      }]
+    else
+      file =
+        dest: path.join(@env.dest, dest)
+        src: source
+
+    @config.copy or= {}
+    @config.copy[source] = {
+      files: [file]
     }
 
     @config.regarde or= {}
