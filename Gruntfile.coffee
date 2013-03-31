@@ -11,17 +11,37 @@
 
 module.exports = (grunt) ->
 
-  # Project configuration.
-  grunt.initConfig
-    simplemocha:
-      all: ['test/**/*_spec.coffee']
-      options:
-        globals: ['window']
-        reporter: 'spec'
-        ui: 'bdd'
+  Tusk = require './lib/tusk'
+  tusk = new Tusk(grunt)
 
-  # Actually load this plugin's task(s).
-  grunt.loadTasks('tasks')
+  tusk.coffee.add 'app.js',
+    'test/fixtures/coffee/**/*.coffee'
+
+  tusk.css.add 'stylesheets',
+    'test/fixtures/stylesheets'
+
+  tusk.jade.add '', 'test/fixtures/pages'
+  tusk.jade.add 'javascripts/templates.js', 'test/fixtures/templates'
+
+  tusk.copy.add 'images', 'test/fixtures/images'
+
+  tusk.uglify.add 'app.min.js', ['app.js']
+
+  config = tusk.getConfig()
+
+  config.simplemocha =
+    all: ['test/**/*_spec.coffee']
+    options:
+      globals: ['window']
+      reporter: 'spec'
+      ui: 'bdd'
+
+  config.clean =
+    tests: ['tmp']
+
+
+  # Project configuration.
+  grunt.initConfig(config)
 
   # These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean')
@@ -29,7 +49,7 @@ module.exports = (grunt) ->
 
   # Whenever the "test" task is run, first clean the "tmp" dir, then run this
   # plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'simplemocha'])
+  grunt.registerTask('test', ['clean', 'tusk', 'simplemocha'])
 
   # By default, lint and run all tests.
   grunt.registerTask('default', ['test'])
