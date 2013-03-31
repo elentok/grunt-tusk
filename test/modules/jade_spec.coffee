@@ -20,8 +20,8 @@ describe "TuskJadeModule", ->
         @stub(@grunt.file, 'isDir').withArgs('test/fixtures/pages/page.jade').returns(false)
         @module.add('page.html', 'test/fixtures/pages/page.jade')
 
-      it "adds a file to @config.jade", ->
-        settings = @config.jade['test/fixtures/pages/page.jade']
+      it "adds a file to @config.jade2html", ->
+        settings = @config.jade2html['test/fixtures/pages/page.jade']
         expect(settings.files).to.eql {
           'build/the-env/page.html': 'test/fixtures/pages/page.jade'
         }
@@ -37,8 +37,8 @@ describe "TuskJadeModule", ->
         @stub(@grunt.file, 'isDir').withArgs('test/fixtures/pages').returns(true)
         @module.add('', 'test/fixtures/pages')
 
-      it "adds an item to @config.jade (only files not starting with '_')", ->
-        settings = @config.jade['test/fixtures/pages']
+      it "adds an item to @config.jade2html (only files not starting with '_')", ->
+        settings = @config.jade2html['test/fixtures/pages']
         expect(settings.files).to.eql {
           'build/the-env/page.html': 'test/fixtures/pages/page.jade'
           'build/the-env/page2.html': 'test/fixtures/pages/page2.jade'
@@ -57,12 +57,13 @@ describe "TuskJadeModule", ->
         @stub(@grunt.file, 'isDir').withArgs('test/fixtures/templates').returns(true)
         @module.add('templates.js', 'test/fixtures/templates')
 
-      it "adds an item to @config.jade", ->
-        settings = @config.jade['test/fixtures/templates']
+      it "adds an item to @config.jade2js", ->
+        settings = @config.jade2js['test/fixtures/templates']
         expect(settings.files).to.eql {
           'build/the-env/templates.js': 'test/fixtures/templates/**/*.jade'
         }
-        expect(settings.options.client).to.be.true
+        expect(settings.options.includeRuntime).to.be.true
+        expect(settings.options.namespace).to.equal 'JST'
         expect(settings.options.processName).to.be.a 'function'
 
       it "adds an item to @config.regarde", ->

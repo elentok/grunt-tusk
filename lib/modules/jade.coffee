@@ -4,18 +4,17 @@ _ = require 'lodash'
 
 module.exports = class TuskJadeModule
 
-  getNpmTasks: -> [package: 'grunt-contrib-jade']
+  getNpmTasks: -> [
+    {package: 'grunt-contrib-jade', oldName: 'jade', newName: 'jade2html'},
+    {package: 'grunt-jade-plugin', oldName: 'jade', newName: 'jade2js'}]
 
   constructor: (@grunt, @config, @env) ->
 
   add: (dest, source, options = {}) ->
     if /\.js$/.test(dest)
-      settings = @_getTemplatesSettings(dest, source, options)
+      @_addTemplates(dest, source, options)
     else
-      settings = @_getPagesSettings(dest, source, options)
-
-    @config.jade or= {}
-    @config.jade[source] = settings
+      @_addPages(dest, source, options)
 
     regarde_files = source
     regarde_files = path.join(source, '**/*.jade') if @grunt.file.isDir(source)
@@ -24,10 +23,10 @@ module.exports = class TuskJadeModule
       files: [regarde_files]
       tasks: ["jade:#{source}"]
 
-  _getTemplatesSettings: (dest, source, options = {})->
+  _addTemplates: (dest, source, options = {})->
     defaults =
-      pretty: true
-      client: true
+      includeRuntime: true
+      namespace: 'JST'
 
     if @grunt.file.isDir(source)
       defaults.processName = (filepath) ->
@@ -42,9 +41,10 @@ module.exports = class TuskJadeModule
     else
       files[key] = source
 
-    return { options: options, files: files }
+    @config.jade2js or= {}
+    @config.jade2js[source] = { options: options, files: files }
 
-  _getPagesSettings: (dest, source, options = {})->
+  _addPages: (dest, source, options = {})->
     options =
       pretty: true
 
@@ -55,7 +55,8 @@ module.exports = class TuskJadeModule
       key = path.join(@env.dest, dest)
       files[key] = source
 
-    return { options: options, files: files }
+    @config.jade2html or= {}
+    @config.jade2html[source] = { options: options, files: files }
 
   _getFiles: (dir, dest) ->
     files = {}

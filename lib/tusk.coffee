@@ -59,7 +59,7 @@ module.exports = class Tusk
   registerTasks: ->
     unless _.isEmpty(@_config.regarde)
       @taskLoader.load(package: 'grunt-regarde')
-    buildTasks = ['tusk_coffee', 'compass', 'jade', 'copy', 'uglify']
+    buildTasks = ['tusk_coffee', 'compass', 'jade2html', 'jade2js', 'copy', 'uglify']
     buildTasks = _.filter buildTasks, (task) => @_config[task]?
 
     console.log "Registering tasks #{buildTasks}"
