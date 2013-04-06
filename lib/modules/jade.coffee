@@ -45,8 +45,10 @@ module.exports = class TuskJadeModule
     @config.jade2js[source] = { options: options, files: files }
 
   _addPages: (dest, source, options = {})->
-    options =
+    defaults =
       pretty: true
+
+    options = _.extend(defaults, options)
 
     files = {}
     if @grunt.file.isDir(source)
