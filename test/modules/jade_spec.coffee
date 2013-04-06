@@ -29,7 +29,7 @@ describe "TuskJadeModule", ->
       it "adds an item to @config.regarde", ->
         expect(@config.regarde['test/fixtures/pages/page.jade']).to.eql {
           files: ['test/fixtures/pages/page.jade']
-          tasks: ['jade:test/fixtures/pages/page.jade']
+          tasks: ['jade2html:test/fixtures/pages/page.jade']
         }
 
     describe "for a directory of html files", ->
@@ -49,7 +49,7 @@ describe "TuskJadeModule", ->
       it "adds an item to @config.regarde)", ->
         expect(@config.regarde['test/fixtures/pages']).to.eql {
           files: ['test/fixtures/pages/**/*.jade']
-          tasks: ['jade:test/fixtures/pages']
+          tasks: ['jade2html:test/fixtures/pages']
         }
 
     describe "for templates", ->
@@ -69,5 +69,5 @@ describe "TuskJadeModule", ->
       it "adds an item to @config.regarde", ->
         expect(@config.regarde['test/fixtures/templates']).to.eql {
           files: ['test/fixtures/templates/**/*.jade']
-          tasks: ['jade:test/fixtures/templates']
+          tasks: ['jade2js:test/fixtures/templates']
         }

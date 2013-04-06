@@ -13,15 +13,17 @@ module.exports = class TuskJadeModule
   add: (dest, source, options = {}) ->
     if /\.js$/.test(dest)
       @_addTemplates(dest, source, options)
+      taskName = "jade2js"
     else
       @_addPages(dest, source, options)
+      taskName = "jade2html"
 
     regarde_files = source
     regarde_files = path.join(source, '**/*.jade') if @grunt.file.isDir(source)
     @config.regarde or= {}
     @config.regarde[source] =
       files: [regarde_files]
-      tasks: ["jade:#{source}"]
+      tasks: ["#{taskName}:#{source}"]
 
   _addTemplates: (dest, source, options = {})->
     defaults =
