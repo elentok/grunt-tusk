@@ -44,7 +44,7 @@ module.exports = class Tusk
 
     @coffee = @_createModule('coffee')
     @copy = @_createModule('copy')
-    @css = @_createModule('css')
+    @sass = @_createModule('sass')
     @jade = @_createModule('jade')
     @uglify = @_createModule('uglify')
     @livereload = @_createModule('livereload')

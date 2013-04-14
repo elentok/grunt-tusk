@@ -1,7 +1,7 @@
 _ = require 'lodash'
 path = require 'path'
 
-module.exports = class TuskCssModule
+module.exports = class TuskSassModule
   constructor: (@grunt, @config, @env) ->
 
   getNpmTasks: -> [package: 'grunt-contrib-compass']

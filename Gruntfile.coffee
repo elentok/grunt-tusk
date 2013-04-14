@@ -17,7 +17,7 @@ module.exports = (grunt) ->
   tusk.coffee.add 'app.js',
     'test/fixtures/coffee/**/*.coffee'
 
-  tusk.css.add 'stylesheets',
+  tusk.sass.add 'stylesheets-sass',
     'test/fixtures/stylesheets'
 
   tusk.jade.add '', 'test/fixtures/pages'

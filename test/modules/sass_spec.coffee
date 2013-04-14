@@ -1,7 +1,7 @@
 require '../spec_helper'
-TuskCssModule = require '../../lib/modules/css'
+TuskSassModule = require '../../lib/modules/sass'
 
-describe "TuskCssModule", ->
+describe "TuskSassModule", ->
   beforeEach ->
     @grunt =
       loadNpmTasks: ->
@@ -9,7 +9,7 @@ describe "TuskCssModule", ->
     @env =
       current: 'dev'
       dest: 'build/the-env'
-    @module = new TuskCssModule(@grunt, @config, @env)
+    @module = new TuskSassModule(@grunt, @config, @env)
 
   describe "#add", ->
     it "adds an item to @config.compass", ->
