@@ -45,6 +45,7 @@ module.exports = class Tusk
     @coffee = @_createModule('coffee')
     @copy = @_createModule('copy')
     @sass = @_createModule('sass')
+    @stylus = @_createModule('stylus')
     @jade = @_createModule('jade')
     @uglify = @_createModule('uglify')
     @livereload = @_createModule('livereload')
@@ -59,7 +60,7 @@ module.exports = class Tusk
   registerTasks: ->
     unless _.isEmpty(@_config.regarde)
       @taskLoader.load(package: 'grunt-regarde')
-    buildTasks = ['tusk_coffee', 'compass', 'jade2html', 'jade2js', 'copy', 'uglify']
+    buildTasks = ['tusk_coffee', 'compass', 'stylus', 'jade2html', 'jade2js', 'copy', 'uglify']
     buildTasks = _.filter buildTasks, (task) => @_config[task]?
 
     console.log "Registering tasks #{buildTasks}"

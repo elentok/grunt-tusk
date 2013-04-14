@@ -20,6 +20,9 @@ module.exports = (grunt) ->
   tusk.sass.add 'stylesheets-sass',
     'test/fixtures/stylesheets'
 
+  tusk.stylus.add 'stylesheets-stylus',
+    'test/fixtures/stylus'
+
   tusk.jade.add '', 'test/fixtures/pages'
   tusk.jade.add 'javascripts/templates.js', 'test/fixtures/templates'
 

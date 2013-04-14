@@ -29,6 +29,10 @@ describe "Tusk", ->
     it "returns the sass module", ->
       expect(@tusk.sass.constructor.name).to.equal 'TuskSassModule'
 
+  describe "stylus", ->
+    it "returns the stylus module", ->
+      expect(@tusk.stylus.constructor.name).to.equal 'TuskStylusModule'
+
   describe "jade", ->
     it "returns the jade module", ->
       expect(@tusk.jade.constructor.name).to.equal 'TuskJadeModule'
