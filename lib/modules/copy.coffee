@@ -24,8 +24,8 @@ module.exports = class TuskCopyModule
       files: [file]
     }
 
-    @config.regarde or= {}
-    @config.regarde[source] = {
+    @config.watch or= {}
+    @config.watch[source] = {
       files: path.join(source, filter)
       tasks: ["copy:#{source}"]
     }

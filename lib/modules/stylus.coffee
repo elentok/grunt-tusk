@@ -16,8 +16,8 @@ module.exports = class TuskStylusModule
       options: options
       files: @_getFiles(dest, source)
 
-    @config.regarde or= {}
-    @config.regarde[source] =
+    @config.watch or= {}
+    @config.watch[source] =
       files: path.join(source, '**/*.styl')
       tasks: ["stylus:#{source}"]
 

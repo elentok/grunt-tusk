@@ -17,8 +17,8 @@ module.exports = class TuskSassModule
     @config.compass[source] =
       options: options
 
-    @config.regarde or= {}
-    @config.regarde[source] =
+    @config.watch or= {}
+    @config.watch[source] =
       files: path.join(source, '**/*')
       tasks: ["compass:#{source}"]
 

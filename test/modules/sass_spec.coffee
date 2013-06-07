@@ -43,9 +43,9 @@ describe "TuskSassModule", ->
       }
 
 
-    it "adds an item to @config.regarde", ->
+    it "adds an item to @config.watch", ->
       @module.add('stylesheets', 'app/stylesheets')
-      expect(@config.regarde['app/stylesheets']).to.eql {
+      expect(@config.watch['app/stylesheets']).to.eql {
         files: 'app/stylesheets/**/*'
         tasks: ["compass:app/stylesheets"]
       }

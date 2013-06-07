@@ -1,12 +1,19 @@
 path = require 'path'
 
+getLiveReloadMiddleware = ->
+  LiveReload = require('connect-livereload')
+  new LiveReload()
+
 module.exports = class TuskLiveReloadModule
 
   constructor: (@grunt, @config, @env) ->
-    @config.regarde or= {}
-    @config.regarde.public =
+    @config.watch or= {}
+    @config.watch.options =
+      livereload: true
+    @config.watch.public =
       files: path.join(@env.dest, '**/*')
-      tasks: ["livereload"]
+      options:
+        livereload: true
 
     @config.connect or= {}
     @config.connect =
@@ -14,12 +21,10 @@ module.exports = class TuskLiveReloadModule
         options:
           port: 9001
           middleware: (connect, options) =>
-            utils = require('grunt-contrib-livereload/lib/utils')
-            snippet = utils.livereloadSnippet
-            mount = connect.static(path.resolve(@env.dest))
-            [snippet, mount]
+            liveReload = getLiveReloadMiddleware()
+            staticFiles = connect.static(path.resolve(@env.dest))
+            [liveReload, staticFiles]
 
   getNpmTasks: ->
-    [ { package: 'grunt-contrib-connect' },
-      { package: 'grunt-contrib-livereload' } ]
+    [ { package: 'grunt-contrib-connect' } ]
 

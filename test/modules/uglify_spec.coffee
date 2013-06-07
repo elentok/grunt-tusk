@@ -24,9 +24,9 @@ describe "TuskUglifyModule", ->
             'build/the-env/javascripts/app.js']
       }
 
-    it "adds an item to @config.regarde", ->
+    it "adds an item to @config.watch", ->
       @module.add('app.min.js', ['vendor.js', 'templates.js', 'app.js'])
-      expect(@config.regarde['app.min.js']).to.eql {
+      expect(@config.watch['app.min.js']).to.eql {
         files: [
           'build/the-env/javascripts/vendor.js',
           'build/the-env/javascripts/templates.js',

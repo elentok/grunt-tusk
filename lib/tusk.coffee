@@ -2,39 +2,12 @@ _ = require 'lodash'
 env = require './env'
 NpmTaskLoader = require './npm_task_loader'
 
-
-
-#module.exports =
-  #initialize: (grunt, userConfig = {}) ->
-
-    #modules =
-      #tusk_coffee: true
-      #jade2html: true
-      #jade2js: true
-      #compass: true
-      #livereload: true
-      #copy: true
-      #uglify: true
-
-    #grunt.loadNpmTasks 'grunt-tusk/node_modules/grunt-regarde'
-
-    #config =
-      #regarde: userConfig.regarde or {}
-
-    #for moduleName of modules
-      #if modules[moduleName]
-        #module = require "./#{moduleName}"
-        #module.initialize(grunt, config, userConfig)
-
-    #grunt.initConfig(config)
-    #registerTasks(grunt)
-
 module.exports = class Tusk
   constructor: (@grunt) ->
     @taskLoader = new NpmTaskLoader(@grunt)
     @env = env
     @_config =
-      regarde: {}
+      watch: {}
 
     @plugins =
       jade2html: true
@@ -58,8 +31,8 @@ module.exports = class Tusk
     module
 
   registerTasks: ->
-    unless _.isEmpty(@_config.regarde)
-      @taskLoader.load(package: 'grunt-regarde')
+    unless _.isEmpty(@_config.watch)
+      @taskLoader.load(package: 'grunt-contrib-watch')
     buildTasks = ['tusk_coffee', 'compass', 'stylus', 'jade2html', 'jade2js', 'copy', 'uglify']
     buildTasks = _.filter buildTasks, (task) => @_config[task]?
 
@@ -67,8 +40,7 @@ module.exports = class Tusk
 
     @grunt.registerTask 'tusk', buildTasks
     @grunt.registerTask 'tusk_live',
-      ['tusk', 'livereload-start', 'connect', 'regarde']
-
+      ['tusk', 'connect', 'watch']
 
   getConfig: ->
     @registerTasks()

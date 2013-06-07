@@ -30,10 +30,10 @@ describe "TuskCoffeeModule", ->
           'build/the-env/javascripts/app.js': ['app/coffee/**/*.coffee']
       }
 
-    it "adds an item to @config.regarde", ->
+    it "adds an item to @config.watch", ->
       @module.add('app.js', ['app/coffee/**/*.coffee'],
         modulesRoot: 'app/coffee')
-      expect(@config.regarde['app.js']).to.eql {
+      expect(@config.watch['app.js']).to.eql {
         files: ['app/coffee/**/*.coffee']
         tasks: ['tusk_coffee:app.js']
       }

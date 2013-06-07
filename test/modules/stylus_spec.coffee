@@ -28,9 +28,9 @@ describe "TuskStylusModule", ->
             'test/fixtures/stylus/file3.styl'
       }
 
-    it "adds an item to @config.regarde", ->
+    it "adds an item to @config.watch", ->
       @module.add('stylesheets', 'test/fixtures/stylus')
-      expect(@config.regarde['test/fixtures/stylus']).to.eql {
+      expect(@config.watch['test/fixtures/stylus']).to.eql {
         files: 'test/fixtures/stylus/**/*.styl'
         tasks: ["stylus:test/fixtures/stylus"]
       }

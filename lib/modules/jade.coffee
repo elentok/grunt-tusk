@@ -18,11 +18,11 @@ module.exports = class TuskJadeModule
       @_addPages(dest, source, options)
       taskName = "jade2html"
 
-    regarde_files = source
-    regarde_files = path.join(source, '**/*.jade') if @grunt.file.isDir(source)
-    @config.regarde or= {}
-    @config.regarde[source] =
-      files: [regarde_files]
+    watch_files = source
+    watch_files = path.join(source, '**/*.jade') if @grunt.file.isDir(source)
+    @config.watch or= {}
+    @config.watch[source] =
+      files: [watch_files]
       tasks: ["#{taskName}:#{source}"]
 
   _addTemplates: (dest, source, options = {})->
@@ -72,7 +72,7 @@ module.exports = class TuskJadeModule
       files[key] = path.join(dir, filename)
     files
 
-    #config.regarde.jade2html =
+    #config.watch.jade2html =
       #files: ['app/pages/**/*.jade', 'test/*.jade']
       #tasks: ['jade2html:dev']
 

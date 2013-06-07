@@ -26,8 +26,8 @@ describe "TuskJadeModule", ->
           'build/the-env/page.html': 'test/fixtures/pages/page.jade'
         }
 
-      it "adds an item to @config.regarde", ->
-        expect(@config.regarde['test/fixtures/pages/page.jade']).to.eql {
+      it "adds an item to @config.watch", ->
+        expect(@config.watch['test/fixtures/pages/page.jade']).to.eql {
           files: ['test/fixtures/pages/page.jade']
           tasks: ['jade2html:test/fixtures/pages/page.jade']
         }
@@ -46,8 +46,8 @@ describe "TuskJadeModule", ->
         expect(settings.options.client).not.to.exist
         expect(settings.options.processName).not.to.exist
 
-      it "adds an item to @config.regarde)", ->
-        expect(@config.regarde['test/fixtures/pages']).to.eql {
+      it "adds an item to @config.watch)", ->
+        expect(@config.watch['test/fixtures/pages']).to.eql {
           files: ['test/fixtures/pages/**/*.jade']
           tasks: ['jade2html:test/fixtures/pages']
         }
@@ -66,8 +66,8 @@ describe "TuskJadeModule", ->
         expect(settings.options.namespace).to.equal 'JST'
         expect(settings.options.processName).to.be.a 'function'
 
-      it "adds an item to @config.regarde", ->
-        expect(@config.regarde['test/fixtures/templates']).to.eql {
+      it "adds an item to @config.watch", ->
+        expect(@config.watch['test/fixtures/templates']).to.eql {
           files: ['test/fixtures/templates/**/*.jade']
           tasks: ['jade2js:test/fixtures/templates']
         }

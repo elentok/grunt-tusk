@@ -48,9 +48,9 @@ describe "TuskCopyModule", ->
           }]
         }
 
-      it "adds an item to @config.regarde", ->
+      it "adds an item to @config.watch", ->
         @plugin.add('images', 'app/images')
-        expect(@config.regarde['app/images']).to.eql {
+        expect(@config.watch['app/images']).to.eql {
           files: 'app/images/**/*'
           tasks: ["copy:app/images"]
         }

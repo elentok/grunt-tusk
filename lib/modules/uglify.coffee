@@ -18,8 +18,8 @@ module.exports = class TuskUglifyModule
       options: options
       files: files
 
-    @config.regarde or= {}
-    @config.regarde[dest] =
+    @config.watch or= {}
+    @config.watch[dest] =
       files: full_source
       tasks: ["uglify:#{dest}"]
 

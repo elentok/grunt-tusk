@@ -12,8 +12,8 @@ module.exports = class TuskCoffeeModule
       files: files
     }
 
-    @config.regarde or = {}
-    @config.regarde[filename] = {
+    @config.watch or = {}
+    @config.watch[filename] = {
       files: sources,
       tasks: ["tusk_coffee:#{filename}"]
     }
