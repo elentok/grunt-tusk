@@ -9,19 +9,13 @@ module.exports = class Tusk
     @_config =
       watch: {}
 
-    @plugins =
-      jade2html: true
-      jade2js: true
-      livereload: true
-      uglify: true
-
     @coffee = @_createModule('coffee')
     @copy = @_createModule('copy')
     @sass = @_createModule('sass')
     @stylus = @_createModule('stylus')
     @jade = @_createModule('jade')
     @uglify = @_createModule('uglify')
-    @livereload = @_createModule('livereload')
+    @server = @_createModule('server')
 
   _createModule: (name) ->
     module = new (require "./modules/#{name}")(@grunt, @_config, @env)
@@ -33,7 +27,8 @@ module.exports = class Tusk
   registerTasks: ->
     unless _.isEmpty(@_config.watch)
       @taskLoader.load(package: 'grunt-contrib-watch')
-    buildTasks = ['tusk_coffee', 'compass', 'stylus', 'jade2html', 'jade2js', 'copy', 'uglify']
+    buildTasks = ['tusk_coffee', 'compass', 'stylus',
+      'jade2html', 'jade2js', 'copy', 'uglify']
     buildTasks = _.filter buildTasks, (task) => @_config[task]?
 
     console.log "Registering tasks #{buildTasks}"

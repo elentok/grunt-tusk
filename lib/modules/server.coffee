@@ -4,12 +4,12 @@ getLiveReloadMiddleware = ->
   LiveReload = require('connect-livereload')
   new LiveReload()
 
-module.exports = class TuskLiveReloadModule
+module.exports = class TuskServerModule
 
   constructor: (@grunt, @config, @env) ->
-    @config.watch or= {}
     @config.watch.options =
       livereload: true
+
     @config.watch.public =
       files: path.join(@env.dest, '**/*')
       options:
