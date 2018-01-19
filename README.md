@@ -12,7 +12,7 @@ Features
 * Write a multi-lingual application using [I18n-js](http://github.com/fnando/i18n-js)
 * Automatically live reload your browser when files are changed
 * Use third-party packages using [bower](https://github.com/twitter/bower)
-* Test your code using [mocha](http://visionmedia.github.com/mocha/), chai, sinon and more.
+* Test your code using [mocha](http://mochajs.org/), chai, sinon and more.
 
 
 Directory Structure
